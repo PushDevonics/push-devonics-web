@@ -3,12 +3,6 @@ importScripts('https://push.devonics.pro/assets/devonics-webpush/firebase/messag
 
 const SENDER_ID = '';
 
-const getApp = appId => {
-    return fetch(`https://push.devonics.pro/api/app/${appId}/view`)
-        .then(response => response.json())
-        .then(data => data.sender_id)
-}
-
 const transition = ({registrationId, pushType, pushId}) => {
     return fetch(`https://push.devonics.pro/api/user/${registrationId}/transition`, {
         method: 'POST',
